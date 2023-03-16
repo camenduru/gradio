@@ -71,6 +71,12 @@ jobs:
           destination: screenshots
       - store_test_results:
           path: test-reports/
+      - run:
+          name: Compress Artifacts
+          command: tar -cvzf gradio-v3.16.2.tar.gz -C /home/circleci/project/gradio .
+      - store_artifacts: 
+          path: gradio-v3.16.2.tar.gz
+          destination: gradio-v3.16.2.tar.gz
 
 workflows:
   backend:
